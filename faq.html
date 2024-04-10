@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars-Ware</title>
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1225291836898148364/1226978466109460520/9712-pouty-kuromi.png?ex=6626bbbe&is=661446be&hm=4907174ab65afac53c56a13c1f7bff833127e6a738097a369e3a8dabfe38e974&" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Izmir+Narrow:wght@700&family=Izmir+Narrow&display=swap">
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .logo-container {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 999;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            cursor: pointer;
+        }
+        .logo-container img {
+            width: 80px;
+            height: auto;
+            display: block;
+        }
+
+        .button {
+            position: absolute;
+            top: 35px;
+            left: 120px;
+            color: rgb(220, 218, 218);
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            z-index: 999;
+            outline: none;
+            background: none;
+            font-size: 23px;
+            font-family: 'Izmir Narrow Bold Italic', sans-serif;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .button:hover {
+            color: #b3afaf;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .center-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            width: 200px;
+            height: auto;
+        }
+
+        .center-image.fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .center-image.fade-out {
+            animation: fadeOut 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .button-container {
+            position: fixed;
+            top: 85%;
+            left: 27%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .button-container.fade-in {
+            opacity: 1;
+        }
+
+        .button-container.fade-out {
+            opacity: 0;
+        }
+
+        /* Centered text */
+        .centered-text {
+            position: fixed;
+            top: 20%;
+            left: 14.6%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            color: rgb(108, 174, 227);
+            font-size: 24px;
+            font-family: 'Martian Mono', monospace;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInText 1s ease forwards;
+        }
+        .second-text {
+            position: fixed;
+            top: 28%;
+            left: 34%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            font-size: 20px;
+            font-family: 'Martian Mono', monospace;
+            color: rgb(59, 85, 122);
+            opacity: 0;
+            animation: fadeInText 1s ease forwards;
+        }
+        /* Additional centered texts */
+        .third-text {
+            position: fixed;
+            top: 38%;
+            left: 15.7%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            color: rgb(240, 168, 10);
+            font-size: 24px;
+            font-family: 'Martian Mono', monospace;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInText 1s ease forwards;
+        }
+        .fourth-text {
+            position: fixed;
+            top: 45%;
+            left: 20.4%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            font-size: 20px;
+            font-family: 'Martian Mono', monospace;
+            color: rgb(204, 255, 0);
+            opacity: 0;
+            animation: fadeInText 1s ease forwards;
+        }
+        .fifth-text {
+            position: fixed;
+            top: 52.5%;
+            left: 15.6%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            font-size: 22px;
+            font-family: 'Martian Mono', monospace;
+            color: rgb(255, 255, 255);
+            opacity: 0;
+            animation: fadeInText 1s ease forwards;
+        }
+        .sixth-text {
+            position: fixed;
+            top: 59.5%;
+            left: 32.5%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            font-size: 20px;
+            font-family: 'Martian Mono', monospace;
+            color: rgb(255, 0, 0);
+            opacity: 0;
+            animation: fadeInText 1s ease forwards;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container" onclick="goToHomepage()">
+        <a href="https://marssaysok.github.io/mars.ware/index.html">
+            <img id="logo" src="https://i.pinimg.com/originals/12/74/80/127480212253570cd556f904c0787209.png" alt="Logo">
+        </a>
+    </div>
+    <button class="button" onclick="displayImage()">Mars-Ware M</button>
+    <button class="button" style="left: 320px;">FAQ</button>
+
+    <!-- Centered text -->
+    <div class="centered-text">
+        When will Mars-Ware M release?
+    </div>
+
+    <div class="second-text">
+       -- As of right now, there has been 0 information on when it will release but I am hoping to release this year if not less.
+    </div>
+    
+    <!-- Additional centered texts -->
+    <div class="third-text">
+        Will Mars-Ware M be free or paid?
+    </div>
+    <div class="fourth-text">
+      -- It will be free but it might change to paid (5$ MAX)
+    </div>
+    <div class="fifth-text">
+        Will it be multi platform supported?
+    </div>
+    <div class="sixth-text">
+        -- Yes, First it will release for macOS (Version 11+) and then android and then windows.
+    </div>
+
+    <script>
+        function goToHomepage() {
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
